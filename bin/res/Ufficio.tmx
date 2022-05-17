@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.8" tiledversion="1.8.4" orientation="orthogonal" renderorder="right-down" width="24" height="17" tilewidth="32" tileheight="32" infinite="0" nextlayerid="7" nextobjectid="3">
+ <properties>
+  <property name="Player" value="Premade_Character_32x32_14.png"/>
+ </properties>
+ <tileset firstgid="1" name="1_Generic_32x32" tilewidth="32" tileheight="32" tilecount="1248" columns="16">
+  <image source="1_Generic_32x32.png" width="512" height="2496"/>
+ </tileset>
+ <tileset firstgid="1249" name="2_LivingRoom_32x32" tilewidth="32" tileheight="32" tilecount="720" columns="16">
+  <image source="2_LivingRoom_32x32.png" width="512" height="1440"/>
+ </tileset>
+ <tileset firstgid="1969" name="3_Bathroom_32x32" tilewidth="32" tileheight="32" tilecount="896" columns="16">
+  <image source="3_Bathroom_32x32.png" width="512" height="1792"/>
+ </tileset>
+ <tileset firstgid="2865" name="Room_Builder_borders_32x32" tilewidth="32" tileheight="32" tilecount="450" columns="45">
+  <image source="Room_Builder_borders_32x32.png" width="1440" height="320"/>
+ </tileset>
+ <tileset firstgid="3315" name="Room_Builder_Walls_32x32" tilewidth="32" tileheight="32" tilecount="1280" columns="32">
+  <image source="Room_Builder_Walls_32x32.png" width="1024" height="1280"/>
+ </tileset>
+ <tileset firstgid="4595" name="Room_Builder_Floors_32x32" tilewidth="32" tileheight="32" tilecount="600" columns="15">
+  <image source="Room_Builder_Floors_32x32.png" width="480" height="1280"/>
+ </tileset>
+ <tileset firstgid="5195" name="5_Classroom_and_library_32x32" tilewidth="32" tileheight="32" tilecount="544" columns="16">
+  <image source="5_Classroom_and_library_32x32.png" width="512" height="1088"/>
+ </tileset>
+ <tileset firstgid="5739" name="13_Conference_Hall_32x32" tilewidth="32" tileheight="32" tilecount="192" columns="16">
+  <image source="13_Conference_Hall_32x32.png" width="512" height="384"/>
+ </tileset>
+ <tileset firstgid="5931" name="22_Museum_32x32" tilewidth="32" tileheight="32" tilecount="1952" columns="16">
+  <image source="22_Museum_32x32.png" width="512" height="3904"/>
+ </tileset>
+ <layer id="1" name="Floor" width="24" height="17">
+  <data encoding="base64" compression="zlib">
+   eJxjYBj6oFGYgaGJCJwMxCkkYBiYAGRPJAIXAXExCXiwmY8OirCIYQO0Nh+fvchgMZC/BAlvRuOjY1LN3wQ1k1iMy1243LeUTPNJddeo+aPmI5tPSwAAPzy8SA==
+  </data>
+ </layer>
+ <layer id="2" name="Walls" width="24" height="17">
+  <properties>
+   <property name="collider" type="bool" value="true"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eJxjYGBgKOElDm8hEcPAFF7i8BUSMakA5KatUH2biWCTCkBuugrVe5kI9mADyHGHHB6E4pdYgBx3yOFBKH6xpcVSqHwxGp8cgC0tToWaNxmNPwpGwSggHgAATtxIKQ==
+  </data>
+ </layer>
+ <layer id="4" name="Props" width="24" height="17">
+  <properties>
+   <property name="collider" type="bool" value="true"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eJzVlD9OAkEUxt9CIiTWG7I3wHgBjLUJRlsrOQDqBRRKLcAWE8FSMfLPhgUOAFrhDZQTEBpbGn+6C0wxuw7JFvolv+ybfO99MzvJroingw2RQ7i0Ra5sWaoEZb+eWCKfCZFpwlub1Asdk52DCtk3sGd5VPFqfs+MdSwpMvdnTWpVLjyQXYcjy0OnzeR69UIjfZykOcsW3MYDGtZUnnOfwCmcQYbsHXiKKP+czAsoQBGyZO9r7vNb29Fs+aOS5vy7Br1l6uuAd1e9asj9jFMib6nVWu2tUd8FzKpeIyT/newPJV/tbVK3AmbDvP+ge4dvDurw6Jh7puoy50IP+o65Z6ohcyN4gVfH3PsL6vKfc6EHfRjYv3ttnh14tvWZUesLSBlK5A==
+  </data>
+ </layer>
+ <layer id="5" name="Props2" width="24" height="17">
+  <properties>
+   <property name="collider" type="bool" value="true"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eJxjYGBgeMvCgAFmimGKkQv+YjF/JdB8Vqj4ayD9Bk0NHwthNgzwsuK3/zdQzx8kfa1MpLFBIA2I04E4A4v53ED7eZDcMJWJNPZJUQaGMiBdDsQVOH1BPrgpSrkZ+8UZGA6IY5d7SQXzzwPNvoDDfGqAi0CzL+Ex/5sIA8N3IP4BxD+B+JcIaeaXAc0uh5r/EEg/QrOLDRhG7EDMAcScQMxFYpi1Ac1rh5r5EUh/QjNfDGieOBBLALEkEEtRECeMEgwMTBLk6x9o8BoYNm9omJZ+A83+Q0PzhxMAAE+HKDs=
+  </data>
+ </layer>
+ <objectgroup id="6" name="LivelloGiocatore">
+  <object id="1" name="Player" type="Player" x="206.731" y="489.075">
+   <properties>
+    <property name="NumFrames" type="int" value="56"/>
+    <property name="TextureHeight" type="int" value="1312"/>
+    <property name="TextureID" value="Player"/>
+    <property name="TextureWidth" type="int" value="1792"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <layer id="3" name="Ceiling" width="24" height="17">
+  <properties>
+   <property name="collider" type="bool" value="true"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eJxL4WYgCnSjqUvhJsxOA7InEmk+ujpkPi72ZArMJwaMmj90zCcHjJo/av5IN38fEO/HgkEAmzgp+AAQAwC2hSzM
+  </data>
+ </layer>
+</map>

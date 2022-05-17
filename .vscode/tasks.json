@@ -1,0 +1,33 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Compila",
+            "type": "cppbuild",
+            "command": "g++",
+            "problemMatcher": ["$gcc"],
+            "args": [
+                "-I${workspaceFolder}/src/State",
+                "-I${workspaceFolder}/src/SDL/include",
+                "-I${workspaceFolder}/src/Zlib/include",
+                "-L${workspaceFolder}/src/SDL/lib",
+                "-L${workspaceFolder}/src/Zlib/lib",
+                "${workspaceFolder}/src/*.cpp",
+                "${workspaceFolder}/src/State/*.cpp",
+                "${workspaceFolder}/src/Objects/*.cpp",
+                "${workspaceFolder}/src/Levels/*.cpp",
+                "-o",
+                "${workspaceFolder}/bin/SDL_Template",
+                "-lmingw32",
+                "-lSDL2main",
+                "-lSDL2",
+                "-lSDL2_image",
+                "-lz"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+    ]
+}
