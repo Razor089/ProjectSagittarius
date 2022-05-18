@@ -8,6 +8,9 @@
             "problemMatcher": ["$gcc"],
             "args": [
                 "-I${workspaceFolder}/src/State",
+                "-I${workspaceFolder}/src/Levels",
+                "-I${workspaceFolder}/src/Objects",
+                "-I${workspaceFolder}/src",
                 "-I${workspaceFolder}/src/SDL/include",
                 "-I${workspaceFolder}/src/Zlib/include",
                 "-L${workspaceFolder}/src/SDL/lib",
@@ -33,6 +36,9 @@
             "problemMatcher": ["$gcc"],
             "args": [
                 "-I${workspaceFolder}/src/State",
+                "-I${workspaceFolder}/src/Levels",
+                "-I${workspaceFolder}/src/Objects",
+                "-I${workspaceFolder}/src/",
                 "${workspaceFolder}/src/*.cpp",
                 "${workspaceFolder}/src/State/*.cpp",
                 "${workspaceFolder}/src/Levels/*.cpp",

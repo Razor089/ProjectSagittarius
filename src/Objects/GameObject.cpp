@@ -1,5 +1,5 @@
 #include "GameObject.hpp"
-#include "../TextureLoader.hpp"
+#include "TextureLoader.hpp"
 
 int GameObject::s_ID = 0;
 
@@ -22,7 +22,7 @@ void GameObject::Render(SDL_Renderer* pRenderer)
 
 void GameObject::Update()
 {
-    
+
 }
 
 void GameObject::Clean()

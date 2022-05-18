@@ -2,7 +2,7 @@
 #define MAINMENUSTATE_H
 #include "State.hpp"
 #include "StateMachine.hpp"
-#include "../Levels/Level.hpp"
+#include "Level.hpp"
 
 class MainMenuState : public State<StateMachine>
 {

@@ -1,7 +1,7 @@
 #ifndef LEVELPARSER_H
 #define LEVELPARSER_H
 #include "Level.hpp"
-#include "../tinyxml.h"
+#include "tinyxml.h"
 
 class Level;
 struct Tileset;

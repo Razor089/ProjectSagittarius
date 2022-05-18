@@ -1,7 +1,7 @@
 #include "TileLayer.hpp"
-#include "../SDLEngine.hpp"
-#include "../TextureLoader.hpp"
-#include "../Camera.hpp"
+#include "SDLEngine.hpp"
+#include "TextureLoader.hpp"
+#include "Camera.hpp"
 
 void TileLayer::Update()
 {
