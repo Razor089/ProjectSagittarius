@@ -25,6 +25,7 @@
                 "src/TinyXML/*.cpp",
                 "-o",
                 "bin/SDL_Template",
+                "bin/icon.res",
                 "-lmingw32",
                 "-lSDL2main",
                 "-lSDL2",
@@ -64,6 +65,22 @@
             "options": {
                 "cwd": "${workspaceFolder}"
             }
+        },
+        {
+            "label": "Genera Icona",
+            "type": "shell",
+            "command": "windres",
+            "args": [
+                "bin/icon.rc",
+                "-O",
+                "coff",
+                "bin/icon.res"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "group": "build",
+            "detail": "Genera l'icona che verra` inclusa nel binario .exe"
         }
     ]
 }
