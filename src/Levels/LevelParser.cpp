@@ -3,6 +3,7 @@
 #include <TextureLoader.hpp>
 #include <base64.h>
 #include <ObjectLayer.hpp>
+#include <GameObjectFactory.hpp>
 #ifdef __WIN32__
 #include <Zlib/zlib.h>
 #elif __APPLE__
@@ -182,7 +183,28 @@ void LevelParser::ParseObjectLayer(TiXmlElement* pObjectElement, std::vector<Lay
             // Get the initial node values type
             e->Attribute("x", &x);
             e->Attribute("y", &y);
-            GameObject* pGameObject;
+            GameObject* pGameObject = GameObjectFactory::Instance()->create(e->Attribute("type"));
+
+            for(TiXmlElement* properties = e->FirstChildElement(); e != NULL; e = e->NextSiblingElement())
+            {
+                if(properties->Value() == std::string("properties"))
+                {
+                    for(TiXmlElement* property = properties->FirstChildElement(); property != NULL; property = property->NextSiblingElement())
+                    {
+                        if(property->Value() == std::string("property"))
+                        {
+                            if(property->Attribute("name") == std::string("numFrames"))
+                            {
+                                property->Attribute("value", &numFrames);
+                            }
+                            else if(property->Attribute("name") == std::string("textureHeight"))
+                            {
+                                property->Attribute("value", &height);
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }

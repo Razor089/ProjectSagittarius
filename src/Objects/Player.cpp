@@ -1,11 +1,24 @@
 #include <Player.hpp>
 
-void Player::Load(int x, int y, int width, int height, std::string textureID)
+Player::Player() : SDLGameObject()
+{}
+
+void Player::Load(const LoaderParams* pParams)
 {
-    GameObject::Load(x, y, width, height, textureID);
+    SDLGameObject::Load(pParams);
 }
 
-void Player::Draw(SDL_Renderer* pRenderer)
+void Player::Draw()
 {
-    GameObject::Render(pRenderer);
+    SDLGameObject::Draw();
+}
+
+void Player::Update()
+{
+
+}
+
+void Player::Clean()
+{
+
 }

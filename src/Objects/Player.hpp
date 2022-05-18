@@ -1,15 +1,16 @@
 #ifndef PLAYER_H
 #define PLAYER_H
-#include <GameObject.hpp>
+#include <SDLGameObject.hpp>
 #include <BaseCreator.hpp>
 
-class Player : public GameObject
+class Player : public SDLGameObject
 {
 public:
-    void Load(int x, int y, int width, int height, std::string textureID);
-    void Draw(SDL_Renderer* pRenderer);
+    Player();
+    void Draw();
     void Update();
     void Clean();
+    void Load(const LoaderParams* pParams);
 };
 
 class PlayerCreator : public BaseCreator

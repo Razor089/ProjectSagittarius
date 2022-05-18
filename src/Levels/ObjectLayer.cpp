@@ -13,6 +13,6 @@ void ObjectLayer::Render()
 {
     for(int i = 0; i < m_gameObjects.size(); i++)
     {
-        m_gameObjects[i]->Render(Engine::Instance()->GetRenderer());
+        m_gameObjects[i]->Draw();
     }
 }

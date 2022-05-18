@@ -37,8 +37,18 @@ public:
         BaseCreator* pCreator = (*it).second;
         return pCreator->CreateGameObject();
     }
+
+    static GameObjectFactory* Instance()
+    {
+        if(m_instance == 0) m_instance = new GameObjectFactory();
+        return m_instance;
+    }
 private:
+    static GameObjectFactory* m_instance;
+    GameObjectFactory() {}
     std::map<std::string, BaseCreator*> m_creators;
 };
+
+GameObjectFactory* GameObjectFactory::m_instance = 0;
 
 #endif
