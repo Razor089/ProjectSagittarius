@@ -11,7 +11,11 @@
             "cwd": "${workspaceFolder}/bin",
             "environment": [],
             "externalConsole": false,
-            "MIMode": "gdb"
+            "MIMode": "gdb",
+            "osx": {
+                "program": "${workspaceFolder}/bin/SDL_Template",
+                "MIMode": "lldb"
+            }
         }
     ]
 }

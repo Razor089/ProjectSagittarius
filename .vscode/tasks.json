@@ -2,7 +2,7 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "Compila",
+            "label": "Compila Windows",
             "type": "cppbuild",
             "command": "g++",
             "problemMatcher": ["$gcc"],
@@ -24,10 +24,26 @@
                 "-lSDL2_image",
                 "-lz"
             ],
-            "group": {
-                "kind": "build",
-                "isDefault": true
-            }
+            "group": "build"
+        },
+        {
+            "label": "Compila Mac OS X",
+            "type": "cppbuild",
+            "command": "g++",
+            "problemMatcher": ["$gcc"],
+            "args": [
+                "-I${workspaceFolder}/src/State",
+                "${workspaceFolder}/src/*.cpp",
+                "${workspaceFolder}/src/State/*.cpp",
+                "${workspaceFolder}/src/Levels/*.cpp",
+                "${workspaceFolder}/src/Objects/*.cpp",
+                "-o",
+                "${workspaceFolder}/bin/SDL_Template",
+                "-lSDL2",
+                "-lSDL2_image",
+                "-lz"
+            ],
+            "group": "build"
         }
     ]
 }
