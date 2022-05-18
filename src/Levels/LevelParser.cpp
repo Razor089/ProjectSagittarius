@@ -160,7 +160,8 @@ void LevelParser::ParseTileLayer(TiXmlElement* pTileElement, std::vector<Layer*>
 void LevelParser::ParseTextures(TiXmlElement* pTextureRoot)
 {
     std::cout << "adding texture " << pTextureRoot->Attribute("value") << " with ID " << pTextureRoot->Attribute("name") << std::endl;
-    TextureLoader::Instance()->LoadTexture(pTextureRoot->Attribute("value"), pTextureRoot->Attribute("name"));
+    std::string fName = pTextureRoot->Attribute("value");
+    TextureLoader::Instance()->LoadTexture(("res/" + fName).c_str(), pTextureRoot->Attribute("name"));
 }
 
 void LevelParser::ParseObjectLayer(TiXmlElement* pObjectElement, std::vector<Layer*>* pLayers)
@@ -168,11 +169,11 @@ void LevelParser::ParseObjectLayer(TiXmlElement* pObjectElement, std::vector<Lay
     // Create an object layer
     ObjectLayer* pObjectLayer = new ObjectLayer();
 
-    std::cout << pObjectElement->FirstChildElement()->Value() << std::endl;
+    std::cout << "Object Layer name: " <<pObjectElement->FirstChildElement()->Attribute("name") << std::endl;
 
     for(TiXmlElement* e = pObjectElement->FirstChildElement(); e != NULL; e = e->NextSiblingElement())
     {
-        std::cout << e->Value() << std::endl;
+        std::cout << "Parsing Object Layer type: " << e->Attribute("type") << std::endl;
         if(e->Value() == std::string("object"))
         {
             int x, y, width, height, numFrames, callbackID, animSpeed;

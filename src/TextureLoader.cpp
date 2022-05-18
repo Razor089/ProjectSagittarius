@@ -33,6 +33,20 @@ SDL_Texture* TextureLoader::GetTexture(const char* filename)
     return TextureMap[filename];
 }
 
+void TextureLoader::DrawFrame(std::string id, int x, int y, int width, int height, int currentRow, int currentFrame, SDL_Renderer* pRenderer, SDL_RendererFlip flip)
+{
+    SDL_Rect srcRect;
+    SDL_Rect dstRect;
+    srcRect.x = width * currentFrame;
+    srcRect.y = height * (currentRow - 1);
+    srcRect.w = dstRect.w = width;
+    srcRect.h = dstRect.h = height;
+    dstRect.x = x;
+    dstRect.y = y;
+
+    SDL_RenderCopyEx(pRenderer, TextureMap[id], &srcRect, &dstRect, 0, 0, flip);
+}
+
 void TextureLoader::DrawTile(std::string id, int margin, int spacing, int x, int y, int width, int height, int currentRow, int currentFrame, SDL_Renderer* renderer)
 {
     /*
