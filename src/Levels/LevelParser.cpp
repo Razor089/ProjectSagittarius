@@ -2,6 +2,7 @@
 #include "TileLayer.hpp"
 #include "../TextureLoader.hpp"
 #include "../base64.h"
+#include "ObjectLayer.hpp"
 #ifdef __WIN32__
 #include <Zlib/zlib.h>
 #elif __APPLE__
@@ -164,5 +165,23 @@ void LevelParser::ParseTextures(TiXmlElement* pTextureRoot)
 
 void LevelParser::ParseObjectLayer(TiXmlElement* pObjectElement, std::vector<Layer*>* pLayers)
 {
-    
+    // Create an object layer
+    ObjectLayer* pObjectLayer = new ObjectLayer();
+
+    std::cout << pObjectElement->FirstChildElement()->Value() << std::endl;
+
+    for(TiXmlElement* e = pObjectElement->FirstChildElement(); e != NULL; e = e->NextSiblingElement())
+    {
+        std::cout << e->Value() << std::endl;
+        if(e->Value() == std::string("object"))
+        {
+            int x, y, width, height, numFrames, callbackID, animSpeed;
+            std::string TextureID;
+
+            // Get the initial node values type
+            e->Attribute("x", &x);
+            e->Attribute("y", &y);
+            GameObject* pGameObject;
+        }
+    }
 }
