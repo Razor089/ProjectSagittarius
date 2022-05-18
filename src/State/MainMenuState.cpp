@@ -1,9 +1,9 @@
-#include "MainMenuState.hpp"
-#include "InputHandler.hpp"
-#include "SDLEngine.hpp"
-#include "TextureLoader.hpp"
-#include "Levels/LevelParser.hpp"
-#include "Camera.hpp"
+#include <MainMenuState.hpp>
+#include <InputHandler.hpp>
+#include <SDLEngine.hpp>
+#include <TextureLoader.hpp>
+#include <Levels/LevelParser.hpp>
+#include <Camera.hpp>
 #include <SDL2/SDL.h>
 #include <iostream>
 

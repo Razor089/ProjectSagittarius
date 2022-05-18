@@ -1,6 +1,6 @@
 #ifndef STATEMACHINE_H
 #define STATEMACHINE_H
-#include "State.hpp"
+#include <State.hpp>
 
 class StateMachine
 {

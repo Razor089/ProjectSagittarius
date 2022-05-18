@@ -1,5 +1,5 @@
-#include "Camera.hpp"
-#include "SDLEngine.hpp"
+#include <Camera.hpp>
+#include <SDLEngine.hpp>
 
 Camera* Camera::instance = 0;
 

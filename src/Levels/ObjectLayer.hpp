@@ -1,7 +1,7 @@
 #ifndef OBJECTLAYER_H
 #define OBJECTLAYER_H
-#include "Layer.hpp"
-#include "GameObject.hpp"
+#include <Layer.hpp>
+#include <GameObject.hpp>
 #include <vector>
 
 class ObjectLayer : public Layer

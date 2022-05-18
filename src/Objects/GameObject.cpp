@@ -1,5 +1,5 @@
-#include "GameObject.hpp"
-#include "TextureLoader.hpp"
+#include <GameObject.hpp>
+#include <TextureLoader.hpp>
 
 int GameObject::s_ID = 0;
 

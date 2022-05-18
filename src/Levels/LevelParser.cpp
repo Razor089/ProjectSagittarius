@@ -1,8 +1,8 @@
-#include "LevelParser.hpp"
-#include "TileLayer.hpp"
-#include "TextureLoader.hpp"
-#include "base64.h"
-#include "ObjectLayer.hpp"
+#include <LevelParser.hpp>
+#include <TileLayer.hpp>
+#include <TextureLoader.hpp>
+#include <base64.h>
+#include <ObjectLayer.hpp>
 #ifdef __WIN32__
 #include <Zlib/zlib.h>
 #elif __APPLE__

@@ -1,6 +1,6 @@
 #include <iostream>
-#include "SDLEngine.hpp"
-#include "InputHandler.hpp"
+#include <SDLEngine.hpp>
+#include <InputHandler.hpp>
 #include <SDL2/SDL.h>
 
 #define FPS 60

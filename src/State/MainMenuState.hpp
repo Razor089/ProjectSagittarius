@@ -1,8 +1,8 @@
 #ifndef MAINMENUSTATE_H
 #define MAINMENUSTATE_H
-#include "State.hpp"
-#include "StateMachine.hpp"
-#include "Level.hpp"
+#include <State.hpp>
+#include <StateMachine.hpp>
+#include <Level.hpp>
 
 class MainMenuState : public State<StateMachine>
 {

@@ -1,5 +1,5 @@
-#include "InputHandler.hpp"
-#include "SDLEngine.hpp"
+#include <InputHandler.hpp>
+#include <SDLEngine.hpp>
 
 InputHandler* InputHandler::pInstance = 0;
 

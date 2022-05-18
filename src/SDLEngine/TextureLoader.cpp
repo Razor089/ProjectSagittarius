@@ -1,5 +1,5 @@
-#include "TextureLoader.hpp"
-#include "SDLEngine.hpp"
+#include <TextureLoader.hpp>
+#include <SDLEngine.hpp>
 #include <iostream>
 
 TextureLoader* TextureLoader::pInstance = 0;

@@ -1,4 +1,4 @@
-#include "StateMachine.hpp"
+#include <StateMachine.hpp>
 
 StateMachine* StateMachine::pInstance = 0;
 

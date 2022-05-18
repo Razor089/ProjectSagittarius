@@ -1,7 +1,7 @@
-#include "SDLEngine.hpp"
-#include "InputHandler.hpp"
-#include "StateMachine.hpp"
-#include "MainMenuState.hpp"
+#include <SDLEngine.hpp>
+#include <InputHandler.hpp>
+#include <StateMachine.hpp>
+#include <MainMenuState.hpp>
 #include <SDL2/SDL_image.h>
 #include <iostream>
 
