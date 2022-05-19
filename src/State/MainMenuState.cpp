@@ -2,10 +2,11 @@
 #include <InputHandler.hpp>
 #include <SDLEngine.hpp>
 #include <TextureLoader.hpp>
-#include <Levels/LevelParser.hpp>
+#include <LevelParser.hpp>
 #include <Camera.hpp>
 #include <SDL2/SDL.h>
 #include <iostream>
+#include <Player.hpp>
 
 void MainMenuState::Enter(StateMachine* sm)
 {

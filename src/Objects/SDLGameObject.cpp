@@ -1,6 +1,7 @@
 #include <SDLGameObject.hpp>
 #include <TextureLoader.hpp>
 #include <SDLEngine.hpp>
+#include <iostream>
 
 SDLGameObject::SDLGameObject() : GameObject()
 {
@@ -21,6 +22,7 @@ void SDLGameObject::Load(const LoaderParams* pParams)
 
 void SDLGameObject::Draw()
 {
+    std::cout << "Texture ID object: " << textureID << std::endl;
     TextureLoader::Instance()->DrawFrame(textureID, int(m_position.GetX()), int(m_position.GetY()), m_width, m_height, currentRow, currentFrame, Engine::Instance()->GetRenderer());
 }
 

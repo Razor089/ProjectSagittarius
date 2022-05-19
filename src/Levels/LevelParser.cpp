@@ -183,28 +183,72 @@ void LevelParser::ParseObjectLayer(TiXmlElement* pObjectElement, std::vector<Lay
             // Get the initial node values type
             e->Attribute("x", &x);
             e->Attribute("y", &y);
+            std::cout << "x: " << e->Attribute("x") << std::endl;
+            std::cout << "y: " << e->Attribute("y") << std::endl;
             GameObject* pGameObject = GameObjectFactory::Instance()->create(e->Attribute("type"));
-
-            for(TiXmlElement* properties = e->FirstChildElement(); e != NULL; e = e->NextSiblingElement())
+            std::cout << "Created :" << e->Attribute("type") << std::endl;
+            for(TiXmlElement* properties = e->FirstChildElement(); properties != NULL; properties = properties->NextSiblingElement())
             {
+                std::cout << "Properties Value: " << properties->Value() << std::endl;
                 if(properties->Value() == std::string("properties"))
                 {
                     for(TiXmlElement* property = properties->FirstChildElement(); property != NULL; property = property->NextSiblingElement())
                     {
+                        std::cout << "Property Value: " << property->Value() << std::endl;
                         if(property->Value() == std::string("property"))
                         {
-                            if(property->Attribute("name") == std::string("numFrames"))
+                            std::string name = property->Attribute("name");
+                            std::cout << "Property Name: " << name << std::endl;
+                            std::cout << "Property Value: " << property->Attribute("value") << std::endl;
+
+                            if(name == std::string("NumFrames"))
                             {
                                 property->Attribute("value", &numFrames);
+                                std::cout << "Uguale" << std::endl;
                             }
-                            else if(property->Attribute("name") == std::string("textureHeight"))
+
+                            if(name == std::string("NumFrames"))
                             {
+                               
+                                property->Attribute("value", &numFrames);
+                                
+                            }
+                            else if(property->Attribute("name") == std::string("TextureHeight"))
+                            {
+                                std::cout << "1" << std::endl;
                                 property->Attribute("value", &height);
+                            }
+                            else if(property->Attribute("name") == std::string("TextureID"))
+                            {
+                                std::cout << "2" << std::endl;
+                                TextureID = property->Attribute("value");
+                            }
+                            else if(property->Attribute("name") == std::string("TextureWidth"))
+                            {
+                                std::cout << "3" << std::endl;
+                                property->Attribute("value", &width);
+                            }
+                            else if(property->Attribute("name") == std::string("CallbackID"))
+                            {
+                                std::cout << "4" << std::endl;
+                                property->Attribute("value", &callbackID);
+                            }
+                            else if(property->Attribute("name") == std::string("animSpeed"))
+                            {
+                                std::cout << "5" << std::endl;
+                                property->Attribute("value", &animSpeed);
                             }
                         }
                     }
                 }
             }
+            std::cout << "Prima del Load " << std::endl;
+            pGameObject->Load(new LoaderParams(x, y, width, height, numFrames, TextureID));
+            std::cout << "Load effettuato" << std::endl;
+            pObjectLayer->GetGameObjects()->push_back(pGameObject);
+            std::cout << "GameObject Inserito: " << pObjectLayer->GetGameObjects()->size() << std::endl;
         }
     }
+    pLayers->push_back(pObjectLayer);
+    std::cout << "ObjectLayer inserito " << std::endl;
 }

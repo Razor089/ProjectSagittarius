@@ -4,6 +4,8 @@
 #include <MainMenuState.hpp>
 #include <SDL2/SDL_image.h>
 #include <iostream>
+#include <Player.hpp>
+#include <GameObjectFactory.hpp>
 
 SDLEngine* SDLEngine::pInstance = NULL;
 
@@ -37,6 +39,8 @@ bool SDLEngine::Init()
         std::cout << "Cannot Initialize SDL_Image; Error: " << SDL_GetError() << std::endl;
         return false;
     }
+
+    GameObjectFactory::Instance()->RegisterType("Player", new PlayerCreator());
 
     StateMachine::Instance()->ChangeState(new MainMenuState());
 

@@ -49,6 +49,4 @@ private:
     std::map<std::string, BaseCreator*> m_creators;
 };
 
-GameObjectFactory* GameObjectFactory::m_instance = 0;
-
 #endif

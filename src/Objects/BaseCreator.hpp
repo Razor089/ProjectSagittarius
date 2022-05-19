@@ -6,6 +6,7 @@ class BaseCreator
 {
 public:
     virtual GameObject* CreateGameObject() const = 0;
+    virtual ~BaseCreator() {}
 };
 
 #endif
