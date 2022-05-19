@@ -203,12 +203,6 @@ void LevelParser::ParseObjectLayer(TiXmlElement* pObjectElement, std::vector<Lay
 
                             if(name == std::string("NumFrames"))
                             {
-                                property->Attribute("value", &numFrames);
-                                std::cout << "Uguale" << std::endl;
-                            }
-
-                            if(name == std::string("NumFrames"))
-                            {
                                
                                 property->Attribute("value", &numFrames);
                                 

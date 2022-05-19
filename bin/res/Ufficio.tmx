@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.5" tiledversion="1.7.1" orientation="orthogonal" renderorder="right-down" width="24" height="17" tilewidth="32" tileheight="32" infinite="0" nextlayerid="7" nextobjectid="3">
+<map version="1.8" tiledversion="1.8.4" orientation="orthogonal" renderorder="right-down" width="24" height="17" tilewidth="32" tileheight="32" infinite="0" nextlayerid="7" nextobjectid="3">
  <properties>
   <property name="Player" value="Premade_Character_32x32_14.png"/>
  </properties>
@@ -60,12 +60,12 @@
   </data>
  </layer>
  <objectgroup id="6" name="LivelloGiocatore">
-  <object id="1" name="Player" type="Player" x="206.731" y="489.075">
+  <object id="1" name="Player" type="Player" x="190.643" y="445.637" width="32" height="64">
    <properties>
     <property name="NumFrames" value="56"/>
-    <property name="TextureHeight" value="1312"/>
+    <property name="TextureHeight" value="64"/>
     <property name="TextureID" value="Player"/>
-    <property name="TextureWidth" value="1792"/>
+    <property name="TextureWidth" value="32"/>
    </properties>
   </object>
  </objectgroup>

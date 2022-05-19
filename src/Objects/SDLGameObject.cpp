@@ -22,7 +22,15 @@ void SDLGameObject::Load(const LoaderParams* pParams)
 
 void SDLGameObject::Draw()
 {
+    /*
     std::cout << "Texture ID object: " << textureID << std::endl;
+    std::cout << "x: " << int(m_position.GetX()) << std::endl;
+    std::cout << "y: " << int(m_position.GetY()) << std::endl;
+    std::cout << "width: " << m_width << std::endl;
+    std::cout << "height: " << m_height << std::endl;
+    std::cout << "currentRow: " << currentRow << std::endl;
+    std::cout << "currentFrame: " << currentFrame << std::endl;
+    */
     TextureLoader::Instance()->DrawFrame(textureID, int(m_position.GetX()), int(m_position.GetY()), m_width, m_height, currentRow, currentFrame, Engine::Instance()->GetRenderer());
 }
 

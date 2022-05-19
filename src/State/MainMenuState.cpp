@@ -31,6 +31,23 @@ void MainMenuState::Update(StateMachine* sm)
 void MainMenuState::Render(StateMachine* sm)
 {
     level->Render();
+    //TextureLoader::Instance()->DrawFrame("Player", WIDTH/2, HEIGHT/2, 32, 32, 0, 1, Engine::Instance()->GetRenderer());
+    /*
+    SDL_Texture* texture = TextureLoader::Instance()->GetTexture("Player");
+    int w, h;
+    SDL_QueryTexture(texture, NULL, NULL, &w, &h);
+    SDL_Rect srcRect;
+    SDL_Rect dstRect;
+
+    srcRect.x = 3 * 32; // numFrames * tileWidth
+    srcRect.y = 0 * 64; // numRows * tileHeight
+    srcRect.w = dstRect.w = 32;
+    srcRect.h = dstRect.h = 64;
+    dstRect.x = WIDTH/2;
+    dstRect.y = HEIGHT/2;
+
+    SDL_RenderCopyEx(Engine::Instance()->GetRenderer(), texture, &srcRect, &dstRect, 0, 0, SDL_FLIP_NONE);
+    */
 }
 
 void MainMenuState::Exit(StateMachine* sm)

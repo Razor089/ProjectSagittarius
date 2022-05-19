@@ -44,6 +44,8 @@ void TextureLoader::DrawFrame(std::string id, int x, int y, int width, int heigh
     dstRect.x = x;
     dstRect.y = y;
 
+    //std::cout << "Rendering : " << TextureMap[id] << std::endl;
+
     SDL_RenderCopyEx(pRenderer, TextureMap[id], &srcRect, &dstRect, 0, 0, flip);
 }
 

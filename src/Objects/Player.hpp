@@ -11,6 +11,10 @@ public:
     void Update();
     void Clean();
     void Load(const LoaderParams* pParams);
+private:
+    bool m_up, m_down, m_left, m_right;
+    void HandleInputs();
+    void Move();
 };
 
 class PlayerCreator : public BaseCreator

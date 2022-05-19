@@ -16,11 +16,13 @@ public:
         // if the type is already registered, do nothing
         if(it != m_creators.end())
         {
+            std::cout << "Type: " << typeID << "already registered" << std::endl;
             delete pCreator;
             return false;
         }
 
         m_creators[typeID] = pCreator;
+        std::cout << "Registered type: " << typeID << std::endl;
         return true;
     }
 
