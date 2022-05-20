@@ -6,6 +6,7 @@ Player::Player() : m_up(false),
                    m_down(false),
                    m_left(false),
                    m_right(false),
+                   last_direction(6),
                    SDLGameObject()
 {}
 
@@ -23,6 +24,11 @@ void Player::Update()
 {
     HandleInputs();
     Move();
+
+    //if(m_down || m_up || m_left || m_right)
+    //{
+        currentFrame += int(SDL_GetTicks() / 125 / m_animSpeed) % m_numFrames; 
+    //}
 }
 
 void Player::Move()
@@ -37,41 +43,53 @@ void Player::Move()
 
 void Player::HandleInputs()
 {
+    // DOWN
+  
     if(InputHandler::Instance()->IsKeyDown(SDL_SCANCODE_S))
     {
         m_down = true;
-        currentFrame = 3;
-    }
-    else
-    {
-        m_down = false;
-    }
-    if(InputHandler::Instance()->IsKeyDown(SDL_SCANCODE_W))
+        m_left = false;
+        m_right = false;
+        m_up = false;
+        currentFrame = 18;
+        currentRow = 3;
+        last_direction = 18;
+    } 
+    else if(InputHandler::Instance()->IsKeyDown(SDL_SCANCODE_W))
     {
         m_up = true;
-        currentFrame = 1;
+        m_down = false;
+        m_left = false;
+        m_right = false;
+        currentFrame = 6;
+        currentRow = 3;
+        last_direction = 6;
     }
-    else
-    {
-        m_up = false;
-    }
-    if(InputHandler::Instance()->IsKeyDown(SDL_SCANCODE_A))
+    else if(InputHandler::Instance()->IsKeyDown(SDL_SCANCODE_A))
     {
         m_left = true;
-        currentFrame = 2;
+        m_right = false;
+        m_up = false;
+        m_down = false;
+        currentFrame = 12;
+        currentRow = 3;
+        last_direction = 12;
     }
-    else
-    {
-        m_left = false;
-    }
-    if(InputHandler::Instance()->IsKeyDown(SDL_SCANCODE_D))
+    else if(InputHandler::Instance()->IsKeyDown(SDL_SCANCODE_D))
     {
         m_right = true;
+        m_left = false;
+        m_up = false;
+        m_down = false;
         currentFrame = 0;
+        currentRow = 3;
+        last_direction = 0;
     }
     else
     {
-        m_right = false;
+        m_up = m_down = m_left = m_right = false;
+        currentFrame = last_direction;
+        currentRow = 2;
     }
 
 }

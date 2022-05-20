@@ -62,10 +62,11 @@
  <objectgroup id="6" name="LivelloGiocatore">
   <object id="1" name="Player" type="Player" x="190.643" y="445.637" width="32" height="64">
    <properties>
-    <property name="NumFrames" value="56"/>
+    <property name="NumFrames" value="6"/>
     <property name="TextureHeight" value="64"/>
     <property name="TextureID" value="Player"/>
     <property name="TextureWidth" value="32"/>
+    <property name="AnimSpeed" value="1"/>
    </properties>
   </object>
  </objectgroup>

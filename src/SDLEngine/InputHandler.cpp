@@ -33,19 +33,21 @@ void InputHandler::Update()
 
 void InputHandler::OnKeyDown()
 {
-    m_Keyscan = SDL_GetKeyboardState(0);
+    m_KeyscanPre = SDL_GetKeyboardState(0);
+    m_KeyscanRes = 0;
 }
 
 void InputHandler::OnKeyUp()
 {
-    m_Keyscan = SDL_GetKeyboardState(0);
+    m_KeyscanRes = SDL_GetKeyboardState(0);
+    m_KeyscanPre = 0;
 }
 
 bool InputHandler::IsKeyDown(SDL_Scancode key) const
 {
-    if(m_Keyscan != 0)
+    if(m_KeyscanPre != 0)
     {
-        if(m_Keyscan[key] == 1) return true;
+        if(m_KeyscanPre[key] == 1) return true;
     }
     return false;
 }

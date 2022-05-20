@@ -13,6 +13,7 @@ public:
     void Load(const LoaderParams* pParams);
 private:
     bool m_up, m_down, m_left, m_right;
+    int last_direction;
     void HandleInputs();
     void Move();
 };

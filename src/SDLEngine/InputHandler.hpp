@@ -17,14 +17,16 @@ public:
     void Update();
     bool IsKeyDown(SDL_Scancode key) const;
 private:
-    InputHandler() : m_Keyscan(0)
+    InputHandler() : m_KeyscanPre(0), m_KeyscanRes(0)
     {}
 
     void OnKeyDown();
     void OnKeyUp();
 
     //Keyboard key pressed/released
-    const Uint8* m_Keyscan;
+    const Uint8* m_KeyscanPre;
+    const Uint8* m_KeyscanRes;
+
 };
 
 #endif

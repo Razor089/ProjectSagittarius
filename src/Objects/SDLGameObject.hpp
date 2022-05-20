@@ -22,6 +22,7 @@ protected:
 
     int currentRow;
     int currentFrame;
+    float m_animSpeed;
 
     Vector2D m_position;
     Vector2D m_velocity;

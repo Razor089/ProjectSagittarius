@@ -15,8 +15,9 @@ void SDLGameObject::Load(const LoaderParams* pParams)
     m_width = pParams->GetWidth();
     m_height = pParams->GetHeight();
     textureID = pParams->GetTextureID();
-    currentRow = 1;
-    currentFrame = 1;
+    currentRow = 2;
+    currentFrame = 6;
+    m_animSpeed = pParams->GetAnimSpeed();
     m_numFrames = pParams->GetNumFrames();
 }
 

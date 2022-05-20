@@ -202,10 +202,8 @@ void LevelParser::ParseObjectLayer(TiXmlElement* pObjectElement, std::vector<Lay
                             std::cout << "Property Value: " << property->Attribute("value") << std::endl;
 
                             if(name == std::string("NumFrames"))
-                            {
-                               
-                                property->Attribute("value", &numFrames);
-                                
+                            {  
+                                property->Attribute("value", &numFrames); 
                             }
                             else if(property->Attribute("name") == std::string("TextureHeight"))
                             {
@@ -227,7 +225,7 @@ void LevelParser::ParseObjectLayer(TiXmlElement* pObjectElement, std::vector<Lay
                                 std::cout << "4" << std::endl;
                                 property->Attribute("value", &callbackID);
                             }
-                            else if(property->Attribute("name") == std::string("animSpeed"))
+                            else if(property->Attribute("name") == std::string("AnimSpeed"))
                             {
                                 std::cout << "5" << std::endl;
                                 property->Attribute("value", &animSpeed);
@@ -237,7 +235,7 @@ void LevelParser::ParseObjectLayer(TiXmlElement* pObjectElement, std::vector<Lay
                 }
             }
             std::cout << "Prima del Load " << std::endl;
-            pGameObject->Load(new LoaderParams(x, y, width, height, numFrames, TextureID));
+            pGameObject->Load(new LoaderParams(x, y, width, height, numFrames, animSpeed,TextureID));
             std::cout << "Load effettuato" << std::endl;
             pObjectLayer->GetGameObjects()->push_back(pGameObject);
             std::cout << "GameObject Inserito: " << pObjectLayer->GetGameObjects()->size() << std::endl;
