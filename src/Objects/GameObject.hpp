@@ -10,6 +10,8 @@ public:
     virtual void Update()=0;
     virtual void Draw()=0;
     virtual void Clean()=0;
+    virtual void Collision()=0;
+    virtual std::string GetTye()=0;
 
     virtual void Load(const LoaderParams* pParams)=0;
 protected:

@@ -44,3 +44,13 @@ void SDLGameObject::Clean()
 {
     
 }
+
+void SDLGameObject::Collision()
+{
+    std::cout << "Collision" << std::endl;
+}
+
+std::string SDLGameObject::GetTye()
+{
+    return "SDLGameObject";
+}

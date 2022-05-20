@@ -4,6 +4,7 @@
 #include <vector>
 #include <Layer.hpp>
 #include <LevelParser.hpp>
+#include <Player.hpp>
 
 
 struct Tileset
@@ -37,11 +38,34 @@ public:
      * @return std::vector<Layer*>* 
      */
     std::vector<Layer*>* GetLayers() { return &m_layers; }
+
+    /**
+     * @brief Get the Collision Layers object
+     * 
+     * @return std::vector<Layer*>* 
+     */
+    std::vector<Layer*>* GetCollisionLayers() { return &m_collisionLayers; }
+
+    /**
+     * @brief Set the Player object
+     * 
+     * @param player the Player object
+     */
+    void SetPlayer(Player* player) { m_player = player; }
+
+    /**
+     * @brief Get the Player object
+     * 
+     * @return Player* - The pointer to the Player object
+     */
+    Player* GetPlayer() { return m_player; }
 private:
     friend class LevelParser;
     Level() {}
     std::vector<Tileset> m_tilesets;
     std::vector<Layer*> m_layers;
+    std::vector<Layer*> m_collisionLayers;
+    Player* m_player;
 };
 
 #endif

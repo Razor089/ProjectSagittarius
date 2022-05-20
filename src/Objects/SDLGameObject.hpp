@@ -13,6 +13,8 @@ public:
     virtual void Draw();
     virtual void Update();
     virtual void Clean();
+    virtual void Collision();
+    virtual std::string GetTye();
 
     virtual void Load(const LoaderParams* pParams);
 protected:

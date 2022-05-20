@@ -24,9 +24,11 @@ public:
     virtual void Render();
     int GetMapWidth() { return m_mapWidth; }
 
-
     void SetMapWidth(int mapWidth) { m_mapWidth = mapWidth; }
     void setTileIDs(const std::vector<std::vector<int> > &data) { m_tileIDs = data; }
+    std::vector<std::vector<int> > GetTileIDs() { return m_tileIDs; }
+    Vector2D GetPosition() { return m_position; }
+    int GetTileSize() { return m_tileSize; }
     Tileset GetTilesetByID(int ID);
 private:
     int m_numColumns;
