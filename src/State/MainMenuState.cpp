@@ -7,6 +7,7 @@
 #include <SDL2/SDL.h>
 #include <iostream>
 #include <Player.hpp>
+#include <CollisionManager.hpp>
 
 void MainMenuState::Enter(StateMachine* sm)
 {
@@ -23,8 +24,9 @@ void MainMenuState::Enter(StateMachine* sm)
 
 void MainMenuState::Update(StateMachine* sm)
 {
+    std::vector<Layer*>* collisionLayers = level->GetCollisionLayers();
+    
     if(InputHandler::Instance()->IsKeyDown(SDL_SCANCODE_ESCAPE)) Engine::Instance()->IsRunning = false;
-
     level->Update();
 }
 

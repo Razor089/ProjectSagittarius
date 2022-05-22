@@ -8,6 +8,11 @@ class CollisionManager
 {
 public:
     void CheckPlayerTileCollision(Player* pPlayer, const std::vector<TileLayer*> &collisionLayers);
+    static CollisionManager* Instance();
+private:
+    CollisionManager(){}
+
+    static CollisionManager* m_instance;
 };
 
 #endif

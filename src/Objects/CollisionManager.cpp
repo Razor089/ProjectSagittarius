@@ -1,5 +1,7 @@
 #include "CollisionManager.hpp"
 
+CollisionManager* CollisionManager::m_instance = 0;
+
 void CollisionManager::CheckPlayerTileCollision(Player* pPlayer, const std::vector<TileLayer*> &collisionLayers)
 {
     for(std::vector<TileLayer*>::const_iterator it = collisionLayers.begin(); it != collisionLayers.end(); ++it)
@@ -34,4 +36,10 @@ void CollisionManager::CheckPlayerTileCollision(Player* pPlayer, const std::vect
             pPlayer->Collision();
         }
     }
+}
+
+CollisionManager* CollisionManager::Instance()
+{
+    if(m_instance == 0) m_instance = new CollisionManager();
+    return m_instance;
 }

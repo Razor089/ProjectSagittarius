@@ -26,6 +26,7 @@
                 "-o",
                 "bin/SDL_Template",
                 "bin/icon.res",
+                "-std=c++11",
                 "-lmingw32",
                 "-lSDL2main",
                 "-lSDL2",
