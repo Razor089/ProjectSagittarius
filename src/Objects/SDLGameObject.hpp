@@ -19,6 +19,8 @@ public:
     virtual void Load(const LoaderParams* pParams);
 protected:
 
+    bool CheckCollideTile(Vector2D newPos);
+
     int m_width;
     int m_height;
 

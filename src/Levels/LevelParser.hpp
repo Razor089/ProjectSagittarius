@@ -5,6 +5,7 @@
 
 class Level;
 struct Tileset;
+class TileLayer;
 
 class LevelParser
 {
@@ -15,7 +16,7 @@ private:
     void ParseTextures(TiXmlElement* pTextureRoot);
     void ParseObjectLayer(TiXmlElement* pObjectElement, Level* pLevel, std::vector<Layer*>* pLayers);
     void ParseTileSets(TiXmlElement* pTilesetRoot, std::vector<Tileset>* pTilesets);
-    void ParseTileLayer(TiXmlElement* pTileElement, std::vector<Layer*> *pLayer, std::vector<Tileset>* pTilesets, std::vector<Layer*>* pCollisionLayer);
+    void ParseTileLayer(TiXmlElement* pTileElement, std::vector<Layer*> *pLayer, std::vector<Tileset>* pTilesets, std::vector<TileLayer*>* pCollisionLayer);
 
     int m_tileSize;
     int m_width;

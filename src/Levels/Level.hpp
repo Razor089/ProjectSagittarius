@@ -5,7 +5,9 @@
 #include <Layer.hpp>
 #include <LevelParser.hpp>
 #include <Player.hpp>
+#include <TileLayer.hpp>
 
+class TileLayer;
 
 struct Tileset
 {
@@ -44,7 +46,7 @@ public:
      * 
      * @return std::vector<Layer*>* 
      */
-    std::vector<Layer*>* GetCollisionLayers() { return &m_collisionLayers; }
+    std::vector<TileLayer*>* GetCollisionLayers() { return &m_collisionLayers; }
 
     /**
      * @brief Set the Player object
@@ -64,7 +66,7 @@ private:
     Level() {}
     std::vector<Tileset> m_tilesets;
     std::vector<Layer*> m_layers;
-    std::vector<Layer*> m_collisionLayers;
+    std::vector<TileLayer*> m_collisionLayers;
     Player* m_player;
 };
 

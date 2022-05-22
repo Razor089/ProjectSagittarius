@@ -109,7 +109,7 @@ void LevelParser::ParseTileSets(TiXmlElement* pTilesetRoot, std::vector<Tileset>
     pTileset->push_back(tileset);
 }
 
-void LevelParser::ParseTileLayer(TiXmlElement* pTileElement, std::vector<Layer*>* player, std::vector<Tileset>* pTilesets, std::vector<Layer*>* pCollisionLayer)
+void LevelParser::ParseTileLayer(TiXmlElement* pTileElement, std::vector<Layer*>* player, std::vector<Tileset>* pTilesets, std::vector<TileLayer*>* pCollisionLayer)
 {
     TileLayer* pTileLayer = new TileLayer(m_tileSize, m_width, m_height, *pTilesets);
 
@@ -258,6 +258,7 @@ void LevelParser::ParseObjectLayer(TiXmlElement* pObjectElement, Level* pLevel, 
             }
             std::cout << "Prima del Load " << std::endl;
             pGameObject->Load(new LoaderParams(x, y, width, height, numFrames, animSpeed,TextureID));
+            pGameObject->SetCollisionLayer(pLevel->GetCollisionLayers());
             std::cout << "Load effettuato" << std::endl;
             if(e->Attribute("type") == "Player")
             {

@@ -37,7 +37,34 @@ void Player::Move()
     if(m_down) m_velocity.SetY(2);
     if(m_left) m_velocity.SetX(-2);
     if(m_right) m_velocity.SetX(2);
-    m_position += m_velocity;
+
+    Vector2D newPos = m_position;
+    newPos.m_x = m_position.m_x + m_velocity.m_x;
+
+    if(!CheckCollideTile(newPos))
+    {
+        m_position.m_x = newPos.m_x;
+    }
+    else
+    {
+        m_velocity.m_x = 0;
+    }
+
+    newPos = m_position;
+    newPos.m_y += m_velocity.m_y;
+
+    if(!CheckCollideTile(newPos))
+    {
+        m_position.m_y = newPos.m_y;
+    }
+    else
+    {
+        m_velocity.m_y = 0;
+    }
+
+    //m_position += m_velocity;
+
+
     m_velocity *= 0;
 }
 

@@ -2,6 +2,8 @@
 #include <TextureLoader.hpp>
 #include <SDLEngine.hpp>
 #include <iostream>
+#include <vector>
+#include <TileLayer.hpp>
 
 SDLGameObject::SDLGameObject() : GameObject()
 {
@@ -53,4 +55,49 @@ void SDLGameObject::Collision()
 std::string SDLGameObject::GetTye()
 {
     return "SDLGameObject";
+}
+
+bool SDLGameObject::CheckCollideTile(Vector2D newPos)
+{
+    if(newPos.GetY() + m_height >= HEIGHT - 32)
+    {
+        return false;
+    }
+    else
+    {
+        for(std::vector<TileLayer*>::iterator it = m_collisionLayer->begin(); it != m_collisionLayer->end(); ++it)
+        {
+            TileLayer* pTileLayer = (*it);
+            std::vector<std::vector<int> > tiles = pTileLayer->GetTileIDs();
+
+            Vector2D layerPos = pTileLayer->GetPosition();
+
+            int x, y, tileColumn, tileRow, tileid = 0;
+
+            x = layerPos.GetX() / pTileLayer->GetTileSize();
+            y = layerPos.GetY() / pTileLayer->GetTileSize();
+
+            Vector2D startPos = newPos;
+            startPos.m_x += 15;
+            startPos.m_y += 20;
+            Vector2D endPos(newPos.GetX() + (m_width - 15), newPos.GetY() + (m_height - 4));
+
+            for(int i = startPos.GetX(); i < endPos.GetX(); i++)
+            {
+                for(int j = startPos.GetY(); j < endPos.GetY(); j++)
+                {
+                    tileColumn = i / pTileLayer->GetTileSize();
+                    tileRow = j / pTileLayer->GetTileSize();
+
+                    tileid = tiles[tileRow + y][tileColumn + x];
+
+                    if(tileid != 0)
+                    {
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }
 }
