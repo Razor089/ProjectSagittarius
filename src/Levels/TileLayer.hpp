@@ -15,6 +15,8 @@
 #include <Vector2D.hpp>
 #include <vector>
 
+struct Tileset;
+
 class TileLayer : public Layer
 {
 public:

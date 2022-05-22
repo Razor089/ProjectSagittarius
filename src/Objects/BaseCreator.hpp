@@ -5,7 +5,7 @@
 class BaseCreator
 {
 public:
-    virtual GameObject* CreateGameObject() const = 0;
+    virtual GameObject* CreateGeameObject() const = 0;
     virtual ~BaseCreator() {}
 };
 

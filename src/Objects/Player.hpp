@@ -3,6 +3,8 @@
 #include <SDLGameObject.hpp>
 #include <BaseCreator.hpp>
 
+class GameObject;
+
 class Player : public SDLGameObject
 {
 public:
@@ -11,10 +13,9 @@ public:
     void Update();
     void Clean();
     void Load(const LoaderParams* pParams);
-    Vector2D GetVelocity() { return m_velocity; }
-    Vector2D GetPosition() { return m_position; }
-    int GetWidth() { return m_width; }
-    int GetHeight() { return m_height; }
+    virtual void Collision();
+
+    virtual std::string GetType() { return "Player"; }
 private:
     bool m_up, m_down, m_left, m_right;
     int last_direction;

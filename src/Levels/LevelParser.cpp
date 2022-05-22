@@ -109,7 +109,7 @@ void LevelParser::ParseTileSets(TiXmlElement* pTilesetRoot, std::vector<Tileset>
     pTileset->push_back(tileset);
 }
 
-void LevelParser::ParseTileLayer(TiXmlElement* pTileElement, std::vector<Layer*>* player, std::vector<Tileset>* pTilesets, std::vector<Layer*>* pCollisionLayer)
+void LevelParser::ParseTileLayer(TiXmlElement* pTileElement, std::vector<Layer*>* player, std::vector<Tileset>* pTilesets, std::vector<TileLayer*>* pCollisionLayer)
 {
     TileLayer* pTileLayer = new TileLayer(m_tileSize, m_width, m_height, *pTilesets);
 

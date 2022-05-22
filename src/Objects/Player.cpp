@@ -27,7 +27,7 @@ void Player::Update()
 
     //if(m_down || m_up || m_left || m_right)
     //{
-        currentFrame += int(SDL_GetTicks() / 125 / m_animSpeed) % m_numFrames; 
+        m_currentFrame += int(SDL_GetTicks() / 125 / m_animSpeed) % m_numFrames; 
     //}
 }
 
@@ -51,8 +51,8 @@ void Player::HandleInputs()
         m_left = false;
         m_right = false;
         m_up = false;
-        currentFrame = 18;
-        currentRow = 3;
+        m_currentFrame = 18;
+        m_currentRow = 3;
         last_direction = 18;
     } 
     else if(InputHandler::Instance()->IsKeyDown(SDL_SCANCODE_W))
@@ -61,8 +61,8 @@ void Player::HandleInputs()
         m_down = false;
         m_left = false;
         m_right = false;
-        currentFrame = 6;
-        currentRow = 3;
+        m_currentFrame = 6;
+        m_currentRow = 3;
         last_direction = 6;
     }
     else if(InputHandler::Instance()->IsKeyDown(SDL_SCANCODE_A))
@@ -71,8 +71,8 @@ void Player::HandleInputs()
         m_right = false;
         m_up = false;
         m_down = false;
-        currentFrame = 12;
-        currentRow = 3;
+        m_currentFrame = 12;
+        m_currentRow = 3;
         last_direction = 12;
     }
     else if(InputHandler::Instance()->IsKeyDown(SDL_SCANCODE_D))
@@ -81,15 +81,15 @@ void Player::HandleInputs()
         m_left = false;
         m_up = false;
         m_down = false;
-        currentFrame = 0;
-        currentRow = 3;
+        m_currentFrame = 0;
+        m_currentRow = 3;
         last_direction = 0;
     }
     else
     {
         m_up = m_down = m_left = m_right = false;
-        currentFrame = last_direction;
-        currentRow = 2;
+        m_currentFrame = last_direction;
+        m_currentRow = 2;
     }
 
 }

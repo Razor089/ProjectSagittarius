@@ -14,9 +14,9 @@ void SDLGameObject::Load(const LoaderParams* pParams)
     m_acceleration = Vector2D(0,0);
     m_width = pParams->GetWidth();
     m_height = pParams->GetHeight();
-    textureID = pParams->GetTextureID();
-    currentRow = 2;
-    currentFrame = 6;
+    m_textureID = pParams->GetTextureID();
+    m_currentRow = 2;
+    m_currentFrame = 6;
     m_animSpeed = pParams->GetAnimSpeed();
     m_numFrames = pParams->GetNumFrames();
 }
@@ -32,7 +32,7 @@ void SDLGameObject::Draw()
     std::cout << "currentRow: " << currentRow << std::endl;
     std::cout << "currentFrame: " << currentFrame << std::endl;
     */
-    TextureLoader::Instance()->DrawFrame(textureID, int(m_position.GetX()), int(m_position.GetY()), m_width, m_height, currentRow, currentFrame, Engine::Instance()->GetRenderer());
+    TextureLoader::Instance()->DrawFrame(m_textureID, int(m_position.GetX()), int(m_position.GetY()), m_width, m_height, m_currentRow, m_currentFrame, Engine::Instance()->GetRenderer());
 }
 
 void SDLGameObject::Update()
@@ -53,4 +53,49 @@ void SDLGameObject::Collision()
 std::string SDLGameObject::GetTye()
 {
     return "SDLGameObject";
+}
+
+bool SDLGameObject::CheckCollideTile(Vector2D newPos)
+{
+    if(newPos.GetY() + m_height >= HEIGHT - 32)
+    {
+        return false;
+    }
+    else
+    {
+        for(std::vector<TileLayer*>::iterator it = m_collisionLayers->begin(); it != m_collisionLayers->end(); ++it)
+        {
+            TileLayer* pTileLayer = (*it);
+            std::vector<std::vector<int> > tiles = pTileLayer->GetTileIDs();
+
+            Vector2D layerPos = pTileLayer->GetPosition();
+
+            int x, y, tileColumn, tileRow, tileid = 0;
+
+            x = layerPos.GetX() / pTileLayer->GetTileSize();
+            y = layerPos.GetY() / pTileLayer->GetTileSize();
+
+            Vector2D startPos = newPos;
+            startPos.m_x += 15;
+            startPos.m_y += 20;
+            Vector2D endPos(newPos.m_x + (m_width - 15), newPos.m_y + (m_height - 4));
+
+            for(int i = startPos.m_x; i < endPos.m_x; i++)
+            {
+                for(int j = startPos.m_y; j < endPos.m_y; j++)
+                {
+                    tileColumn = i / pTileLayer->GetTileSize();
+                    tileRow = j / pTileLayer->GetTileSize();
+
+                    tileid = tiles[tileRow + y][tileColumn + x];
+
+                    if(tileid != 0)
+                    {
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }
 }

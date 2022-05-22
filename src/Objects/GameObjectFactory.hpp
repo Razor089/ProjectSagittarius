@@ -1,9 +1,10 @@
 #ifndef GAMEOBJECTFACTORY_H
 #define GAMEOBJECTFACTORY_H
-#include <BaseCreator.hpp>
 #include <map>
 #include <string>
 #include <iostream>
+#include <GameObject.hpp>
+#include <BaseCreator.hpp>
 
 
 class GameObjectFactory

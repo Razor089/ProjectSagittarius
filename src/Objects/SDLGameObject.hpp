@@ -8,7 +8,7 @@
 class SDLGameObject : public GameObject
 {
 public: 
-    SDLGameObject();
+    virtual ~SDLGameObject(){}
 
     virtual void Draw();
     virtual void Update();
@@ -18,21 +18,8 @@ public:
 
     virtual void Load(const LoaderParams* pParams);
 protected:
-
-    int m_width;
-    int m_height;
-
-    int currentRow;
-    int currentFrame;
-    float m_animSpeed;
-
-    Vector2D m_position;
-    Vector2D m_velocity;
-    Vector2D m_acceleration;
-
-    int m_numFrames;
-
-    std::string textureID;
+    SDLGameObject();
+    bool CheckCollideTile(Vector2D newPos);
 };
 
 #endif
