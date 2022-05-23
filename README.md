@@ -23,8 +23,8 @@ brew install SDL2_image
 Una volta scaricate tutte le dipendenze basterà semplicemente usare le shortcut di Visual Studio Code per compilare ed eseguire il progetto. (I tasks JSON di Visual Studio sono stati già impostati per entrambi i sistemi).
 
 F5 - per eseguire il progetto.
-\_\_Windows\_\_: Ctrl+Shift+b - per compilare il progetto.
-\_\_MacOS X\_\_: Cmd+Shift+b - per compilare il progetto.
+__Windows__: Ctrl+Shift+b - per compilare il progetto.
+__MacOS X__: Cmd+Shift+b - per compilare il progetto.
 
 ## Screenshot del progetto
 
