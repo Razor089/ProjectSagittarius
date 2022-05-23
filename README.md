@@ -6,7 +6,7 @@ Il linguaggio usato è C++ con le librerie [SDL2](https://www.libsdl.org/downloa
 Il progetto è stato creato con l'editor [Visual Studio Code](https://code.visualstudio.com).
 
 ### Windows
-Per compilare il progetto con Windows è necessario solo il toolchain di compilazione MinGW (g++), tutte le risorse e le librerie dipendenti al progetto sono già inclusi all'interno della cartella
+Per compilare il progetto con Windows è necessario solo il toolchain di compilazione [MinGW (g++)](https://www.mingw-w64.org), tutte le risorse e le librerie dipendenti al progetto sono già inclusi all'interno della cartella
 
 ### Mac OS X 
 Per compilare il progetto con MacOs X è necessario che gli strumenti sviluppatore di XCode siano installati sulla macchina.
