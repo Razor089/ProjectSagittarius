@@ -3,12 +3,12 @@
 Repository per la base di un gioco a visuale dall'alto (simil Pokémon o Zelda).
 Il linguaggio usato è C++ con le librerie [SDL2](https://www.libsdl.org/download-2.0.php), [TinyXML](https://www.grinninglizard.com/tinyxml2/index.html) (per il caricamento delle mappe), e il software [Tiled](https://www.mapeditor.org) per creare le mappe.
 
-Il progetto è stato creato con l'editor Visual Studio Code.
+Il progetto è stato creato con l'editor [Visual Studio Code](https://code.visualstudio.com).
 
-### \*\* Windows \*\*
+### Windows
 Per compilare il progetto con Windows è necessario solo il toolchain di compilazione MinGW (g++), tutte le risorse e le librerie dipendenti al progetto sono già inclusi all'interno della cartella
 
-### \*\*Mac OS X \*\*
+### Mac OS X 
 Per compilare il progetto con MacOs X è necessare che gli strumenti sviluppatore di XCode siano installati sulla macchina.
 Scaricare le varie dipendenze tramite [homebrew](https://brew.sh)
 SDL2:
@@ -21,6 +21,10 @@ brew install SDL2_image
 ```
 
 Una volta scaricate tutte le dipendenze basterà semplicemente usare le shortcut di Visual Studio Code per compilare ed eseguire il progetto. (I tasks JSON di Visual Studio sono stati già impostati per entrambi i sistemi).
+
+F5 - per eseguire il progetto.
+\_\_Windows\_\_: Ctrl+Shift+b - per compilare il progetto.
+\_\_MacOS X\_\_: Cmd+Shift+b - per compilare il progetto.
 
 ## Screenshot del progetto
 
