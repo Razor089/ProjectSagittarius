@@ -25,8 +25,10 @@ public:
     virtual void Update();
     virtual void Render();
     int GetMapWidth() { return m_mapWidth; }
+    int GetMapHeight() { return m_mapHeight; }
 
     void SetMapWidth(int mapWidth) { m_mapWidth = mapWidth; }
+    void SetMapHeight(int mapHeight) { m_mapHeight = mapHeight; }
     void setTileIDs(const std::vector<std::vector<int> > &data) { m_tileIDs = data; }
     std::vector<std::vector<int> > GetTileIDs() { return m_tileIDs; }
     Vector2D GetPosition() { return m_position; }
@@ -38,6 +40,7 @@ private:
     int m_tileSize;
 
     int m_mapWidth;
+    int m_mapHeight;
 
     /**
      * @brief Vector position to store 

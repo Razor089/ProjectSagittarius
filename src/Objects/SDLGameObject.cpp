@@ -4,6 +4,7 @@
 #include <iostream>
 #include <vector>
 #include <TileLayer.hpp>
+#include <Collision.h>
 
 SDLGameObject::SDLGameObject() : GameObject()
 {
@@ -78,11 +79,11 @@ bool SDLGameObject::CheckCollideTile(Vector2D newPos)
             y = layerPos.GetY() / pTileLayer->GetTileSize();
 
             Vector2D startPos = newPos;
-            startPos.m_x += 15;
+            startPos.m_x += m_width;
             startPos.m_y += m_height;
-            Vector2D endPos(newPos.GetX() + (m_width - 15), newPos.GetY() + (m_height ));
+            Vector2D endPos(newPos.GetX() + m_width, newPos.GetY() + m_height);
             
-            for(int i = startPos.GetX(); i < endPos.GetX(); i++)
+            for(int i = startPos.GetX(); i <= endPos.GetX(); i++)
             {
                 for(int j = startPos.GetY(); j <= endPos.GetY(); j++)
                 {
@@ -93,12 +94,14 @@ bool SDLGameObject::CheckCollideTile(Vector2D newPos)
 
                     if(tileid != 0)
                     {
+                        /*
                         std::cout << "m_width: " << m_width << " m_height: " << m_height << std::endl;
                         std::cout << "player x: " << m_position.GetX() << " y: " << m_position.GetY() << std::endl;
                         std::cout << "startPos x: " << startPos.GetX() << " y:" << startPos.GetY() << std::endl;
                         std::cout << "endPos x: " << endPos.GetX() << " y: " << endPos.GetY() << std::endl;
                         std::cout << "layerPos x: " << layerPos.GetX() << " y: " << layerPos.GetY() << std::endl;
                         std::cout << "x: " << x << " y: " << y << std::endl; 
+                        */
                         return true;
                     }
                 }
@@ -106,4 +109,47 @@ bool SDLGameObject::CheckCollideTile(Vector2D newPos)
         }
         return false;
     }
+}
+
+bool SDLGameObject::RevampedCollideTile(Vector2D newPos)
+{
+    for(std::vector<TileLayer*>::iterator it = m_collisionLayer->begin(); it != m_collisionLayer->end(); ++it)
+    {
+        TileLayer* tileLayer = (*it);
+
+        std::cout << "MapWidth: " << tileLayer->GetMapWidth() << " MapHeight: " << tileLayer->GetMapHeight() << std::endl;
+
+        std::vector<std::vector<int> > tiles = tileLayer->GetTileIDs();
+        int x, y;
+        x = tileLayer->GetPosition().GetX() / tileLayer->GetTileSize();
+        y = tileLayer->GetPosition().GetY() / tileLayer->GetTileSize();
+
+        for(int i = 0; i < tileLayer->GetMapWidth(); i++)
+        {
+            for(int j = 0; j < tileLayer->GetMapHeight(); j++)
+            {
+                if(tiles[j][i] == 1)
+                {
+                    std::cout << "tile[" << i << "][" << j << "]: " << tiles[j][i] << std::endl;
+                    SDL_Rect tileRect;
+                    tileRect.x = i * 32;
+                    tileRect.y = j * 32;
+                    tileRect.w = 32;
+                    tileRect.h = 32;
+
+                    SDL_Rect playerRect;
+                    playerRect.x = newPos.GetX();
+                    playerRect.y = newPos.GetY();
+                    playerRect.w = 32;
+                    playerRect.h = 32;
+                    if(RectRect(&playerRect, &tileRect))
+                    {
+                        std::cout << "Collided" << std::endl;
+                        return true;
+                    }   
+                }
+            }
+        }
+    }
+    return false;
 }

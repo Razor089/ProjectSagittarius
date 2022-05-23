@@ -75,9 +75,6 @@ void Player::HandleInputs()
     if(InputHandler::Instance()->IsKeyDown(SDL_SCANCODE_S))
     {
         m_down = true;
-        m_left = false;
-        m_right = false;
-        m_up = false;
         currentFrame = 18;
         currentRow = 3;
         last_direction = 18;
@@ -85,9 +82,6 @@ void Player::HandleInputs()
     else if(InputHandler::Instance()->IsKeyDown(SDL_SCANCODE_W))
     {
         m_up = true;
-        m_down = false;
-        m_left = false;
-        m_right = false;
         currentFrame = 6;
         currentRow = 3;
         last_direction = 6;
@@ -95,9 +89,6 @@ void Player::HandleInputs()
     else if(InputHandler::Instance()->IsKeyDown(SDL_SCANCODE_A))
     {
         m_left = true;
-        m_right = false;
-        m_up = false;
-        m_down = false;
         currentFrame = 12;
         currentRow = 3;
         last_direction = 12;
@@ -105,9 +96,6 @@ void Player::HandleInputs()
     else if(InputHandler::Instance()->IsKeyDown(SDL_SCANCODE_D))
     {
         m_right = true;
-        m_left = false;
-        m_up = false;
-        m_down = false;
         currentFrame = 0;
         currentRow = 3;
         last_direction = 0;

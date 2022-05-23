@@ -77,4 +77,5 @@ TileLayer::TileLayer(int tileSize, int mapWidth, int mapHeight, const std::vecto
     m_numRows = mapHeight;
 
     m_mapWidth = mapWidth;
+    m_mapHeight = mapHeight;
 }

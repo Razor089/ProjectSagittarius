@@ -30,6 +30,8 @@ Level* LevelParser::ParseLevel(const char* levelFile)
     pRoot->Attribute("width", &m_width);
     pRoot->Attribute("height", &m_height);
 
+    
+
     // We know that properties is the first child of the root
     TiXmlElement* pProperties = pRoot->FirstChildElement();
 
@@ -112,7 +114,7 @@ void LevelParser::ParseTileSets(TiXmlElement* pTilesetRoot, std::vector<Tileset>
 void LevelParser::ParseTileLayer(TiXmlElement* pTileElement, std::vector<Layer*>* player, std::vector<Tileset>* pTilesets, std::vector<TileLayer*>* pCollisionLayer)
 {
     TileLayer* pTileLayer = new TileLayer(m_tileSize, m_width, m_height, *pTilesets);
-
+    std::cout << "M_Width: " << m_width << " M_Height: " << m_height << std::endl;
     std::vector<std::vector<int> > data;
     bool collider = false;
 
@@ -211,56 +213,45 @@ void LevelParser::ParseObjectLayer(TiXmlElement* pObjectElement, Level* pLevel, 
             std::cout << "Created :" << e->Attribute("type") << std::endl;
             for(TiXmlElement* properties = e->FirstChildElement(); properties != NULL; properties = properties->NextSiblingElement())
             {
-                std::cout << "Properties Value: " << properties->Value() << std::endl;
                 if(properties->Value() == std::string("properties"))
                 {
                     for(TiXmlElement* property = properties->FirstChildElement(); property != NULL; property = property->NextSiblingElement())
                     {
-                        std::cout << "Property Value: " << property->Value() << std::endl;
                         if(property->Value() == std::string("property"))
                         {
                             std::string name = property->Attribute("name");
-                            std::cout << "Property Name: " << name << std::endl;
-                            std::cout << "Property Value: " << property->Attribute("value") << std::endl;
-
                             if(name == std::string("NumFrames"))
                             {  
                                 property->Attribute("value", &numFrames); 
                             }
                             else if(property->Attribute("name") == std::string("TextureHeight"))
                             {
-                                std::cout << "1" << std::endl;
                                 property->Attribute("value", &height);
                             }
                             else if(property->Attribute("name") == std::string("TextureID"))
                             {
-                                std::cout << "2" << std::endl;
                                 TextureID = property->Attribute("value");
                             }
                             else if(property->Attribute("name") == std::string("TextureWidth"))
                             {
-                                std::cout << "3" << std::endl;
                                 property->Attribute("value", &width);
                             }
                             else if(property->Attribute("name") == std::string("CallbackID"))
                             {
-                                std::cout << "4" << std::endl;
                                 property->Attribute("value", &callbackID);
                             }
                             else if(property->Attribute("name") == std::string("AnimSpeed"))
                             {
-                                std::cout << "5" << std::endl;
                                 property->Attribute("value", &animSpeed);
                             }
                         }
                     }
                 }
             }
-            std::cout << "Prima del Load " << std::endl;
             pGameObject->Load(new LoaderParams(x, y, width, height, numFrames, animSpeed,TextureID));
             pGameObject->SetCollisionLayer(pLevel->GetCollisionLayers());
             std::cout << "Load effettuato" << std::endl;
-            if(e->Attribute("type") == "Player")
+            if(e->Attribute("type") == std::string("Player"))
             {
                 pLevel->SetPlayer(dynamic_cast<Player*>(pGameObject));
             }

@@ -20,6 +20,7 @@ public:
 protected:
 
     bool CheckCollideTile(Vector2D newPos);
+    bool RevampedCollideTile(Vector2D newPos);
 
     int m_width;
     int m_height;
