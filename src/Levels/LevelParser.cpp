@@ -33,13 +33,14 @@ Level* LevelParser::ParseLevel(const char* levelFile)
     
 
     // We know that properties is the first child of the root
+    // Pointer to the properties of the map
     TiXmlElement* pProperties = pRoot->FirstChildElement();
 
     for(TiXmlElement* e = pProperties->FirstChildElement(); e != NULL; e = e->NextSiblingElement())
     {
         if(e->Value() == std::string("property"))
         {
-            ParseTextures(e);
+            ParseTextures(e); // Parsing all the object's textures
         }
     }
 
@@ -95,6 +96,26 @@ void LevelParser::ParseTileSets(TiXmlElement* pTilesetRoot, std::vector<Tileset>
     tileset.name = pTilesetRoot->Attribute("name");
 
     tileset.numColumns = tileset.width / (tileset.tileWidth + tileset.spacing);
+
+    std::vector<Tile> collTiles;
+    for(TiXmlElement* tile = pTilesetRoot->FirstChildElement(); tile != NULL; tile = tile->NextSiblingElement())
+    {
+        if(tile->Value() == std::string("tile"))
+        {
+            // Adding the new collision associated to the tile
+            Tile t;
+            int id;
+            tile->Attribute("id", &id);
+            TiXmlElement* objectGroup = tile->FirstChildElement();
+            objectGroup->FirstChildElement()->Attribute("x", &t.x);
+            objectGroup->FirstChildElement()->Attribute("y", &t.y);
+            objectGroup->FirstChildElement()->Attribute("width", &t.width);
+            objectGroup->FirstChildElement()->Attribute("height", &t.height);
+            t.tileID = id + tileset.firstGridID;
+            collTiles.push_back(t);
+        }
+    }
+    tileset.colliderTiles = collTiles;
 
     /*
     std::cout << "------Tileset Loaded------" << std::endl;
@@ -152,10 +173,10 @@ void LevelParser::ParseTileLayer(TiXmlElement* pTileElement, std::vector<Layer*>
         std::string t = text->Value();
         //std::cout << "Decoding: " << t << std::endl;
         decodedIDs = base64_decode(t);
-
         uLongf numGids = m_width * m_height * sizeof(int);
         std::vector<unsigned> gids(numGids);
         uncompress((Bytef*)&gids[0], &numGids, (const Bytef*)decodedIDs.c_str(), decodedIDs.size());
+
         std::vector<int> layerRow(m_width);
 
         for(int j = 0; j < m_height; j++)
@@ -169,6 +190,15 @@ void LevelParser::ParseTileLayer(TiXmlElement* pTileElement, std::vector<Layer*>
             {
                 data[rows][cols] = gids[rows * m_width + cols];
             }
+        }
+
+        for(int i = 0; i < m_height; i++)
+        {
+            for(int j = 0; j < m_width; j++)
+            {
+                std::cout << "[" << data[i][j] << "]";
+            }
+            std::cout << std::endl;
         }
 
         pTileLayer->setTileIDs(data);

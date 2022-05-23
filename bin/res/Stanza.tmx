@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.8" tiledversion="1.8.4" orientation="orthogonal" renderorder="right-down" width="30" height="30" tilewidth="32" tileheight="32" infinite="0" nextlayerid="4" nextobjectid="2">
+ <properties>
+  <property name="Player" value="Premade_Character_32x32_14.png"/>
+ </properties>
+ <tileset firstgid="1" name="Room_Builder_Walls_32x32" tilewidth="32" tileheight="32" tilecount="1280" columns="32">
+  <image source="Room_Builder_Walls_32x32.png" width="1024" height="1280"/>
+ </tileset>
+ <tileset firstgid="1281" name="Room_Builder_borders_32x32" tilewidth="32" tileheight="32" tilecount="450" columns="45">
+  <image source="Room_Builder_borders_32x32.png" width="1440" height="320"/>
+  <tile id="51">
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="18" y="0" width="14" height="32">
+     <properties>
+      <property name="collider" type="bool" value="true"/>
+     </properties>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="52">
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="0" y="0" width="32" height="12">
+     <properties>
+      <property name="collider" type="bool" value="true"/>
+     </properties>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="53">
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="0" y="0" width="14" height="32">
+     <properties>
+      <property name="collider" type="bool" value="false"/>
+     </properties>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="96">
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="18" y="0" width="14" height="32">
+     <properties>
+      <property name="collider" type="bool" value="true"/>
+     </properties>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="98">
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="0" y="0" width="14" height="32">
+     <properties>
+      <property name="collider" type="bool" value="true"/>
+     </properties>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="141">
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="18" y="0" width="14" height="12">
+     <properties>
+      <property name="collider" type="bool" value="true"/>
+     </properties>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="142">
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="0" y="0" width="32" height="12">
+     <properties>
+      <property name="collider" type="bool" value="true"/>
+     </properties>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="143">
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="0" y="0" width="14" height="12">
+     <properties>
+      <property name="collider" type="bool" value="true"/>
+     </properties>
+    </object>
+   </objectgroup>
+  </tile>
+ </tileset>
+ <tileset firstgid="1731" name="1_Generic_32x32" tilewidth="32" tileheight="32" tilecount="1248" columns="16">
+  <image source="1_Generic_32x32.png" width="512" height="2496"/>
+  <tile id="101">
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="10" y="16" width="22" height="16"/>
+   </objectgroup>
+  </tile>
+  <tile id="102">
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="0" y="16" width="32" height="16"/>
+   </objectgroup>
+  </tile>
+  <tile id="103">
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="0" y="16" width="22" height="16"/>
+   </objectgroup>
+  </tile>
+  <tile id="180">
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="4" y="12" width="8" height="20"/>
+   </objectgroup>
+  </tile>
+  <tile id="181">
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="20" y="12" width="8" height="20"/>
+   </objectgroup>
+  </tile>
+  <tile id="196">
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="4" y="0" width="26" height="30"/>
+   </objectgroup>
+  </tile>
+  <tile id="197">
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="2" y="0" width="26" height="30"/>
+   </objectgroup>
+  </tile>
+ </tileset>
+ <tileset firstgid="2979" name="Room_Builder_Floors_32x32" tilewidth="32" tileheight="32" tilecount="600" columns="15">
+  <image source="Room_Builder_Floors_32x32.png" width="480" height="1280"/>
+ </tileset>
+ <layer id="3" name="Floor" width="30" height="30">
+  <data encoding="base64" compression="zlib">
+   eJztzTENAEAIBMETgH8JLwF9SKD60MwkW2+SdO398Hx9AQCAMwOGgCid
+  </data>
+ </layer>
+ <layer id="1" name="Walls" width="30" height="30">
+  <properties>
+   <property name="collider" type="bool" value="true"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eJwzYWVgMCUCmwExNUEiDvM02BkYNIFYix3CT6aBveXsmOIWQDFLILaiob3tWOxFB7SwFx+ooKF/8YEOGtnbBzSvnwg8gcr2joJRMApGwSgYBaNgFIyCUTAUAQDeUxBL
+  </data>
+ </layer>
+ <objectgroup id="2" name="Player">
+  <object id="1" name="Player" type="Player" x="96" y="97" width="32" height="64">
+   <properties>
+    <property name="AnimSpeed" value="1"/>
+    <property name="NumFrames" value="6"/>
+    <property name="TextureHeight" value="64"/>
+    <property name="TextureID" value="Player"/>
+    <property name="TextureWidth" value="32"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>

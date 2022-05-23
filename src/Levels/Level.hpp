@@ -9,6 +9,15 @@
 
 class TileLayer;
 
+struct Tile
+{
+    int tileID;
+    int x;
+    int y;
+    int height;
+    int width;
+};
+
 struct Tileset
 {
     int firstGridID;
@@ -20,6 +29,7 @@ struct Tileset
     int height;
     int numColumns;
     std::string name;
+    std::vector<Tile> colliderTiles;
 };
 
 class Level

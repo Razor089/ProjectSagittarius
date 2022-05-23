@@ -39,4 +39,26 @@ static bool RectRect(SDL_Rect* A, SDL_Rect* B)
     return true;
 }
 
+static bool CheckRect(SDL_Rect* A, SDL_Rect* B)
+{
+    int aHBuf = A->h / s_buffer;
+    int aWBuf = A->w / s_buffer;
+
+    int bHbuf = B->h / s_buffer;
+    int bWBuf = B->w / s_buffer;
+
+    // First we check collision horizontally
+    if((A->x + A->w) - aWBuf >= B->x + bWBuf ||
+        A->x + aWBuf <= (B->x + B->w) - bWBuf)
+    {
+        // then we check vertically
+        if((A->h + A->h) - aHBuf >= B->h + bHbuf ||
+            A->h + aHBuf <= (B->h + B->w) - bHbuf)
+        {
+            return true;
+        }
+    } 
+    return false;
+}
+
 #endif

@@ -17,7 +17,7 @@ void MainMenuState::Enter(StateMachine* sm)
     pos = 0;
     //if(!(TextureLoader::Instance()->LoadTexture("C:/Users/Davide/Desktop/C++/SDL_Template/bin/res/Dune.png", "Wallpaper"))) std::cout << "Error loading image!" << std::endl;
     LevelParser* parser = new LevelParser();
-    level = parser->ParseLevel("res/Ufficio.tmx");
+    level = parser->ParseLevel("res/Stanza.tmx");
     std::cout << "Level tilset size: " << level->GetTilesets()->size() << std::endl;
     std::cout << "Level layers size: " << level->GetLayers()->size() << std::endl;
 }
