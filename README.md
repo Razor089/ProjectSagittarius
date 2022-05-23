@@ -9,7 +9,7 @@ Il progetto è stato creato con l'editor [Visual Studio Code](https://code.visua
 Per compilare il progetto con Windows è necessario solo il toolchain di compilazione MinGW (g++), tutte le risorse e le librerie dipendenti al progetto sono già inclusi all'interno della cartella
 
 ### Mac OS X 
-Per compilare il progetto con MacOs X è necessare che gli strumenti sviluppatore di XCode siano installati sulla macchina.
+Per compilare il progetto con MacOs X è necessario che gli strumenti sviluppatore di XCode siano installati sulla macchina.
 Scaricare le varie dipendenze tramite [homebrew](https://brew.sh)
 SDL2:
 ```bash
