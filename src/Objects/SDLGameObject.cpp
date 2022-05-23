@@ -79,12 +79,12 @@ bool SDLGameObject::CheckCollideTile(Vector2D newPos)
 
             Vector2D startPos = newPos;
             startPos.m_x += 15;
-            startPos.m_y += 20;
-            Vector2D endPos(newPos.GetX() + (m_width - 15), newPos.GetY() + (m_height - 4));
-
+            startPos.m_y += m_height;
+            Vector2D endPos(newPos.GetX() + (m_width - 15), newPos.GetY() + (m_height ));
+            
             for(int i = startPos.GetX(); i < endPos.GetX(); i++)
             {
-                for(int j = startPos.GetY(); j < endPos.GetY(); j++)
+                for(int j = startPos.GetY(); j <= endPos.GetY(); j++)
                 {
                     tileColumn = i / pTileLayer->GetTileSize();
                     tileRow = j / pTileLayer->GetTileSize();
@@ -93,6 +93,12 @@ bool SDLGameObject::CheckCollideTile(Vector2D newPos)
 
                     if(tileid != 0)
                     {
+                        std::cout << "m_width: " << m_width << " m_height: " << m_height << std::endl;
+                        std::cout << "player x: " << m_position.GetX() << " y: " << m_position.GetY() << std::endl;
+                        std::cout << "startPos x: " << startPos.GetX() << " y:" << startPos.GetY() << std::endl;
+                        std::cout << "endPos x: " << endPos.GetX() << " y: " << endPos.GetY() << std::endl;
+                        std::cout << "layerPos x: " << layerPos.GetX() << " y: " << layerPos.GetY() << std::endl;
+                        std::cout << "x: " << x << " y: " << y << std::endl; 
                         return true;
                     }
                 }
