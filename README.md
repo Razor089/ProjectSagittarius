@@ -5,4 +5,4 @@ Il linguaggio usato è C++ con le librerie [SDL2](https://www.libsdl.org/downloa
 
 ## Screenshot del progetto
 
-![La prima stanza](https://imgur.com/a/tJJI80B)
+![La prima stanza](https://user-images.githubusercontent.com/6473175/169802387-07826974-8774-4fdb-aded-b8a1bcdf7138.png)
