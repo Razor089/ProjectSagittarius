@@ -11,7 +11,7 @@ public:
     static CollisionManager* Instance();
 private:
     CollisionManager(){}
-
+    
     static CollisionManager* m_instance;
 };
 

@@ -118,7 +118,7 @@ bool SDLGameObject::CheckCollideTile(Vector2D newPos)
                                 std::cout << "PlayerRect.x: " << playerRect.x << " PlayerRect.y: " << playerRect.y << std::endl;
                                 std::cout << "PlayerRect.w: " << playerRect.w << " PlayerRect.h: " << playerRect.h << std::endl;
 
-                                return CheckRect(&playerRect, &rectTile);
+                                return RectanglesCollide(&playerRect, &rectTile);
                             }
                         }
                     }
