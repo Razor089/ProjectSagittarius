@@ -1,6 +1,7 @@
 #ifndef COLLISION_H
 #define COLLISION_H
 #include <SDL2/SDL.h>
+#include <iostream>
 
 const static int s_buffer = 2; // the buffer function is to reduce slightly 
                                // the collision surface to check
@@ -59,6 +60,34 @@ static bool CheckRect(SDL_Rect* A, SDL_Rect* B)
         }
     } 
     return false;
+}
+
+static bool Overlapping(int minA, int maxA, int minB, int maxB)
+{
+    return minB <= maxA && minA <= maxB;
+}
+
+static bool RectanglesCollide(SDL_Rect *A, SDL_Rect *B)
+{
+    /*
+    int aHBuf = A->h / s_buffer;
+    int aWBuf = A->w / s_buffer;
+    int bHBuf = B->h / s_buffer;
+    int bWBuf = B->w / s_buffer;
+    */
+    int aLeft = A->x;
+    int aRight = A->x + A->w;
+
+    int bLeft = B->x;
+    int bRight = B->x + B->w;
+
+    int aTop = A->y;
+    int aBottom = A->y + A->h;
+
+    int bTop = B->y;
+    int bBottom = B->y + B->h;
+
+    return Overlapping(aLeft, aRight, bLeft, bRight) && Overlapping(aTop, aBottom, bTop, bBottom);
 }
 
 #endif
