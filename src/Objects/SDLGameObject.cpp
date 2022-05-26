@@ -4,7 +4,7 @@
 #include <iostream>
 #include <vector>
 #include <TileLayer.hpp>
-#include <Collision.h>
+#include <Collision.hpp>
 
 SDLGameObject::SDLGameObject() : GameObject()
 {
@@ -117,13 +117,10 @@ bool SDLGameObject::CheckCollideTile(Vector2D newPos)
 
                                 std::cout << "PlayerRect.x: " << playerRect.x << " PlayerRect.y: " << playerRect.y << std::endl;
                                 std::cout << "PlayerRect.w: " << playerRect.w << " PlayerRect.h: " << playerRect.h << std::endl;
-                                if(CheckRect(&playerRect, &rectTile))
-                                {
-                                    return true;
-                                }
+
+                                return CheckRect(&playerRect, &rectTile);
                             }
                         }
-                        //return true;
                     }
                 }
             }

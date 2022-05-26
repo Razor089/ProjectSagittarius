@@ -2,7 +2,7 @@
 #define COLLISION_H
 #include <SDL2/SDL.h>
 
-const static int s_buffer = 4; // the buffer function is to reduce slightly 
+const static int s_buffer = 2; // the buffer function is to reduce slightly 
                                // the collision surface to check
 
 static bool RectRect(SDL_Rect* A, SDL_Rect* B)
